@@ -1,0 +1,12 @@
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+
+  vars:
+    pkgname: git
+
+  tasks:
+    - name: Install git server on linux
+      action: yum name='{{pkgname}}' state=installed
