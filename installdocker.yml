@@ -1,0 +1,18 @@
+--- # My Playbook or Handlers
+
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+
+  vars:
+    pkgname: docker
+
+  tasks:
+    - name: Install docker on linux
+      action: yum name='{{pkgname}}' state=installed
+      notify: restart docker
+
+  handlers:
+    - name: restart docker
+      action: service name='{{pkgname}}' state=restarted
