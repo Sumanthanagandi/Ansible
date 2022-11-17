@@ -1,0 +1,11 @@
+--- #My playbook to install nano
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  vars:
+    pkgname: nano
+
+  tasks:
+    - name: Install nano on linux
+      action: yum name='{{pkgname}}' state=installed
