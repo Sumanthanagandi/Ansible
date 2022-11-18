@@ -1,0 +1,4 @@
+---
+- name: install apache on RedHat
+  action: yum pkg=httpd state=latest
+  notify: restart httpd
